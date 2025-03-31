@@ -127,9 +127,14 @@ const HeroSection = () => {
             </a>
             
             <a 
-              href="#" 
-              className="relative group px-6 py-3 rounded-lg glassmorphism border border-white/10 shadow-lg hover:shadow-fuchsia-500/20 transition-all duration-300"
+              href="./Vaibhav-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group px-6 py-3 rounded-lg glassmorphism border border-white/10 shadow-lg hover:shadow-fuchsia-500/20 transition-all duration-300 flex items-center"
             >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gradient-purple-to-fuchsia" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-500 font-bold">Download CV</span>
               <span className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-purple-500 to-fuchsia-500 rounded-lg"></span>
             </a>
@@ -162,7 +167,7 @@ const HeroSection = () => {
               
               {/* Image */}
               <img 
-                src="https://images.unsplash.com/photo-1531891570158-e71b35a485bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                src="./profile-image.png" 
                 alt="Vaibhav Vishwkarma" 
                 className="w-full h-full object-cover"
               />
