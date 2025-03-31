@@ -9,17 +9,17 @@ import CertificatesSection from "./components/CertificatesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import StarsBackground from "./components/StarsBackground";
-import AnimatedProgrammingLogos from "./components/AnimatedProgrammingLogos";
+import MouseFollowLogos from "./components/MouseFollowLogos";
 
 function App() {
   return (
     <div className="min-h-screen relative bg-background text-foreground overflow-x-hidden">
       <StarsBackground />
+      <MouseFollowLogos />
       <Navbar />
       <main>
         <HeroSection />
         <AboutSection />
-        <AnimatedProgrammingLogos />
         <SkillsSection />
         <ProjectsSection />
         <ExperienceSection />
