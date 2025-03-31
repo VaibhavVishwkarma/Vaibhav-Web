@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 50% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 226 50% 12%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 226 50% 12%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 196 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 225 30% 20%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 270 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 227 30% 20%;
+    --input: 227 30% 20%;
+    --ring: 196 100% 50%;
+    
+    --radius: 0.5rem;
+  }
+ 
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 225 50% 12%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 225 50% 12%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 50% 12%;
+    
+    --primary: 196 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 270 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 196 100% 50%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-space {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-lg border border-white/10 bg-white/5;
+  }
+  
+  .light .glassmorphism {
+    @apply bg-white/70 border-white/20;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600;
+  }
+  
+  .neon-glow {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+  
+  .neon-box {
+    box-shadow: 0 0 5px theme(colors.cyan.400), 0 0 10px theme(colors.cyan.400);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes tilt {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
+
+/* Typing effect styles */
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid theme(colors.cyan.400);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+}
+
+/* Skill bar animation */
+.skill-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, theme(colors.purple.800), theme(colors.blue.600));
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Star styles for background */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 5s infinite;
+}
