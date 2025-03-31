@@ -12,7 +12,7 @@ const AboutSection = () => {
               <div className="aspect-square rounded-2xl overflow-hidden border-2 border-cyan-600/30 shadow-xl shadow-cyan-600/20 bg-[#080810]">
                 {/* Anonymous profile image */}
                 <img 
-                  src="./anonymous-profile.svg" 
+                  src="./anonymous-profile.png" 
                   alt="Anonymous Developer Profile" 
                   className="w-full h-full object-cover"
                 />
