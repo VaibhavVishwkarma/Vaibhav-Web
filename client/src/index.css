@@ -188,123 +188,97 @@
   animation: shimmer 2s infinite;
 }
 
-/* Enhanced star styles for background */
+/* Performance optimized star styles */
 .star {
   position: absolute;
   border-radius: 50%;
-  animation: twinkle 5s infinite;
+  animation: twinkle 8s infinite; /* Slower animation */
   z-index: -1;
+  will-change: opacity; /* Hardware acceleration hint */
+  transform: translateZ(0);
 }
 
 .star-large {
   position: absolute;
   border-radius: 50%;
-  animation: twinkle 9s infinite;
+  animation: twinkle 12s infinite; /* Slower animation */
   z-index: -1;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 .star-bright {
   position: absolute;
   border-radius: 50%;
-  animation: twinkle-bright 3s infinite;
+  animation: twinkle-bright 5s infinite; /* Slower animation */
   z-index: -1;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
-/* Nebula cloud effect */
+/* Optimized nebula cloud effect */
 .nebula {
   position: absolute;
   border-radius: 50%;
-  filter: blur(30px);
+  filter: blur(20px); /* Less blur for better performance */
   z-index: -2;
-  animation: nebula-glow 15s infinite alternate;
   mix-blend-mode: screen;
+  /* Animation removed for performance */
 }
 
 .light .nebula {
-  opacity: 0.1 !important;
-  filter: blur(20px) saturate(0.5) !important;
+  opacity: 0.05 !important; /* Even lower opacity in light mode */
+  filter: blur(10px) saturate(0.3) !important; /* Less blur */
 }
 
-/* Cosmic dust particles */
+/* Optimized cosmic dust particles */
 .cosmic-dust {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   z-index: -1;
-  animation: cosmic-drift 30s infinite linear;
+  /* Animation only applied selectively in JS */
+  transform: translateZ(0);
 }
 
 .light .cosmic-dust {
-  opacity: 0.1 !important;
+  opacity: 0.05 !important; /* Lower opacity */
 }
 
-/* Shooting star effect */
+/* Optimized shooting star effect */
 .shooting-star {
   position: absolute;
-  width: 150px;
+  width: 100px; /* Shorter for performance */
   height: 1px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8) 50%, rgba(240, 240, 255, 0));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6) 50%, rgba(240, 240, 255, 0));
   z-index: -1;
-  animation: shooting 1s linear infinite;
+  animation: shooting 3s linear; /* Slower animation and not infinite */
   opacity: 0;
+  will-change: transform, opacity;
 }
 
-/* Pulse effect */
-.pulse-effect {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  z-index: -3;
-  animation: pulse 8s infinite ease-out;
-  opacity: 0;
-}
+/* Optimized pulse effect - removed entirely as it's performance heavy */
 
+/* Optimized animations */
 @keyframes twinkle-bright {
   0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
+    opacity: 0.3;
   }
   50% {
-    opacity: 1;
-    transform: scale(1.2);
+    opacity: 0.8;
   }
 }
 
-@keyframes nebula-glow {
-  0% {
-    opacity: 0.1;
-    filter: blur(30px) hue-rotate(0deg);
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.15;
-    filter: blur(35px) hue-rotate(15deg);
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 0.1;
-    filter: blur(30px) hue-rotate(30deg);
-    transform: scale(1);
-  }
-}
-
+/* Simplified drift animation with fewer keyframes */
 @keyframes cosmic-drift {
   0% {
-    transform: translateX(0) translateY(0);
-  }
-  25% {
-    transform: translateX(10px) translateY(10px);
+    transform: translateX(0);
   }
   50% {
-    transform: translateX(0) translateY(20px);
-  }
-  75% {
-    transform: translateX(-10px) translateY(10px);
+    transform: translateX(10px);
   }
   100% {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
   }
 }
 

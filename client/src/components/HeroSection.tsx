@@ -5,54 +5,58 @@ const HeroSection = () => {
   const typedText = useTypingEffect(["Software Developer", "AI Enthusiast", "Problem Solver", "Full Stack Developer"]);
   const heroRef = useRef<HTMLDivElement>(null);
   
-  // Add local particle effects just for the hero section
+  // Add reduced particle effects for better performance
   useEffect(() => {
     if (!heroRef.current) return;
     
+    // Performance optimized particle creation
     const createParticle = () => {
       if (!heroRef.current) return;
       
       const particle = document.createElement("div");
       particle.classList.add("hero-particle");
       
-      // Random position, size and color
-      const size = 1 + Math.random() * 3;
+      // Simplified particles with fewer properties
+      const size = 1 + Math.random() * 2; // Smaller size
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
       
-      // Random color from galaxy palette
-      const colors = ["#8be9fd", "#bd93f9", "#ff79c6", "#50fa7b", "#f1fa8c", "#ff5555"];
+      // Reduced color palette
+      const colors = ["#8be9fd", "#bd93f9", "#ff79c6"];
       const color = colors[Math.floor(Math.random() * colors.length)];
       particle.style.backgroundColor = color;
-      particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+      
+      // Only add shadow to some particles (performance optimization)
+      if (Math.random() > 0.7) {
+        particle.style.boxShadow = `0 0 ${size}px ${color}`;
+      }
       
       // Set initial position at bottom
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${80 + Math.random() * 20}%`;
       
-      // Add to hero section
+      // Add to hero section using document fragment
       heroRef.current.appendChild(particle);
       
-      // Animate upward
+      // Animate upward with reduced animation time
       setTimeout(() => {
-        particle.style.top = `${-20 - Math.random() * 20}%`;
+        particle.style.top = `${-10 - Math.random() * 10}%`;
         particle.style.opacity = "0";
       }, 50);
       
-      // Remove when animation complete
+      // Remove when animation complete - shorter duration
       setTimeout(() => {
         if (heroRef.current && heroRef.current.contains(particle)) {
           heroRef.current.removeChild(particle);
         }
-      }, 15000);
+      }, 8000); // Reduced from 15000ms to 8000ms
     };
     
-    // Create particles periodically
+    // Create fewer particles less frequently
     const interval = setInterval(() => {
-      for (let i = 0; i < 3; i++) {
-        createParticle();
-      }
-    }, 200);
+      // Only create one particle at a time instead of three
+      createParticle();
+    }, 500); // Increased interval from 200ms to 500ms
     
     return () => clearInterval(interval);
   }, []);
@@ -153,39 +157,31 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Profile image with cosmic effects */}
+        {/* Performance optimized profile image with reduced effects */}
         <div className="md:w-1/2 flex justify-center">
-          <div className="relative animate-float">
-            {/* Orbital ring effect */}
-            <div className="absolute inset-0 -m-8 border-2 border-dashed border-cyan-500/30 rounded-full rotate-45 animate-spin-slow"></div>
-            <div className="absolute inset-0 -m-4 border border-purple-500/20 rounded-full -rotate-12 animate-reverse-spin-slow"></div>
+          <div className="relative">
+            {/* Single orbital ring effect instead of two */}
+            <div className="absolute inset-0 -m-8 border-2 border-dashed border-cyan-500/20 rounded-full rotate-45 animate-spin-slow"></div>
             
             {/* Profile image container */}
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden neon-box">
-              {/* Inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-fuchsia-500/10 to-purple-500/20 z-10"></div>
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
+              {/* Simplified inner glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 z-10"></div>
               
-              {/* Image */}
+              {/* Image with hardware acceleration hints */}
               <img 
                 src="./profile-image.png" 
                 alt="Vaibhav Vishwkarma" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover will-change-transform"
+                style={{transform: "translateZ(0)"}}
               />
               
-              {/* Accent lights */}
-              <div className="absolute top-0 left-1/4 w-2 h-2 bg-cyan-500 rounded-full blur-sm animate-pulse"></div>
-              <div className="absolute bottom-1/4 right-0 w-2 h-2 bg-fuchsia-500 rounded-full blur-sm animate-pulse"></div>
-              
-              {/* Shine effect */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-white/0 via-white/30 to-white/0 -rotate-45 transform translate-x-full animate-shine"></div>
-              </div>
+              {/* Removed multiple accent lights, keeping just one */}
+              <div className="absolute top-0 left-1/4 w-2 h-2 bg-cyan-500 rounded-full blur-sm"></div>
             </div>
             
-            {/* Floating accent elements */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-cyan-500 opacity-20 blur-lg animate-pulse"></div>
-            <div className="absolute -bottom-2 left-0 w-8 h-8 rounded-full bg-purple-500 opacity-20 blur-lg animate-pulse delay-700"></div>
-            <div className="absolute top-1/2 -right-6 w-4 h-4 rounded-full bg-fuchsia-500 opacity-30 blur-sm animate-pulse delay-1000"></div>
+            {/* Reduced floating accent elements - just one instead of three */}
+            <div className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-cyan-500 opacity-10 blur-md"></div>
           </div>
         </div>
       </div>

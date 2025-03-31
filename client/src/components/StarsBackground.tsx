@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 
-const StarsBackground = () => {
+// Using memo to prevent unnecessary re-renders
+const StarsBackground = memo(() => {
   useEffect(() => {
     const starsContainer = document.getElementById("stars-container");
     if (!starsContainer) return;
@@ -10,7 +11,7 @@ const StarsBackground = () => {
       starsContainer.removeChild(starsContainer.firstChild);
     }
 
-    // Create stars with different colors and effects
+    // Performance optimized stars creation - using fragments and reduced elements
     const createStars = (
       count: number, 
       className: string, 
@@ -18,32 +19,46 @@ const StarsBackground = () => {
       animationDuration: string, 
       colors?: string[]
     ) => {
-      const defaultColors = ["#ffffff", "#8be9fd", "#bd93f9", "#ff79c6", "#50fa7b"];
+      const defaultColors = ["#ffffff", "#8be9fd", "#bd93f9"];
       const starColors = colors || defaultColors;
+      const fragment = document.createDocumentFragment();
       
-      for (let i = 0; i < count; i++) {
+      // Reduce count for better performance
+      const adjustedCount = Math.floor(count * 0.6);
+      
+      for (let i = 0; i < adjustedCount; i++) {
         const star = document.createElement("div");
         star.classList.add(className);
         star.style.top = `${Math.random() * 100}%`;
         star.style.left = `${Math.random() * 100}%`;
         star.style.width = size;
         star.style.height = size;
-        star.style.animationDelay = `${Math.random() * 5}s`;
-        star.style.animationDuration = animationDuration;
+        
+        // Optimize animation properties
+        if (i % 3 === 0) { // Only 1/3 of stars get animations
+          star.style.animationDelay = `${Math.random() * 5}s`;
+          star.style.animationDuration = animationDuration;
+        }
         
         // Apply random color from the palette
         const colorIndex = Math.floor(Math.random() * starColors.length);
         star.style.backgroundColor = starColors[colorIndex];
         
-        // Add box shadow with the same color for glow effect
-        star.style.boxShadow = `0 0 ${parseInt(size) * 2}px ${starColors[colorIndex]}`;
+        // Reduce shadow intensity for better performance
+        if (i % 2 === 0) { // Only half of stars get shadows
+          star.style.boxShadow = `0 0 ${parseInt(size)}px ${starColors[colorIndex]}`;
+        }
         
-        starsContainer.appendChild(star);
+        fragment.appendChild(star);
       }
+      
+      starsContainer.appendChild(fragment);
     };
     
-    // Create shooting stars
+    // Create shooting stars - reduced count
     const createShootingStars = (count: number) => {
+      const fragment = document.createDocumentFragment();
+      
       for (let i = 0; i < count; i++) {
         const shootingStar = document.createElement("div");
         shootingStar.classList.add("shooting-star");
@@ -51,7 +66,7 @@ const StarsBackground = () => {
         // Random position and angle
         const startX = Math.random() * 100;
         const startY = Math.random() * 100;
-        const angle = Math.random() * 45; // Angle between 0 and 45 degrees
+        const angle = Math.random() * 45;
         
         shootingStar.style.top = `${startY}%`;
         shootingStar.style.left = `${startX}%`;
@@ -59,95 +74,84 @@ const StarsBackground = () => {
         shootingStar.style.animationDelay = `${Math.random() * 15}s`;
         shootingStar.style.animationDuration = `${0.5 + Math.random() * 1}s`;
         
-        starsContainer.appendChild(shootingStar);
+        fragment.appendChild(shootingStar);
       }
+      
+      starsContainer.appendChild(fragment);
     };
 
-    // Create colorful nebula/galaxy elements
-    const nebulaColors = [
-      ["rgba(189, 147, 249, 0.25)", "rgba(139, 233, 253, 0.15)", "rgba(80, 250, 123, 0.05)"], // Purple to cyan to green
-      ["rgba(255, 121, 198, 0.25)", "rgba(189, 147, 249, 0.15)", "rgba(139, 233, 253, 0.05)"], // Pink to purple to cyan
-      ["rgba(80, 250, 123, 0.25)", "rgba(255, 184, 108, 0.15)", "rgba(255, 121, 198, 0.05)"], // Green to orange to pink
-      ["rgba(241, 250, 140, 0.25)", "rgba(80, 250, 123, 0.15)", "rgba(139, 233, 253, 0.05)"], // Yellow to green to cyan
-      ["rgba(255, 85, 85, 0.25)", "rgba(255, 184, 108, 0.15)", "rgba(241, 250, 140, 0.05)"] // Red to orange to yellow
-    ];
+    // Create nebulas - reduced count and complexity
+    const createNebulas = (count: number) => {
+      const nebulaColors = [
+        ["rgba(189, 147, 249, 0.15)", "rgba(139, 233, 253, 0.1)", "transparent"],
+        ["rgba(255, 121, 198, 0.15)", "rgba(189, 147, 249, 0.1)", "transparent"]
+      ];
+      
+      const fragment = document.createDocumentFragment();
+      
+      for (let i = 0; i < count; i++) {
+        const nebula = document.createElement("div");
+        nebula.classList.add("nebula");
+        
+        // Position and size
+        nebula.style.top = `${10 + Math.random() * 80}%`;
+        nebula.style.left = `${10 + Math.random() * 80}%`;
+        nebula.style.opacity = `${0.08 + Math.random() * 0.1}`; // Lower opacity
+        nebula.style.width = `${200 + Math.random() * 150}px`; // Smaller size
+        nebula.style.height = `${200 + Math.random() * 150}px`;
+        nebula.style.transform = `scale(${0.8 + Math.random()}) rotate(${Math.random() * 360}deg)`;
+        
+        // Choose a random color scheme
+        const colorScheme = nebulaColors[Math.floor(Math.random() * nebulaColors.length)];
+        nebula.style.background = `radial-gradient(
+          circle at center,
+          ${colorScheme[0]},
+          ${colorScheme[1]} 50%,
+          ${colorScheme[2]} 80%
+        )`;
+        
+        // No animation for better performance
+        
+        fragment.appendChild(nebula);
+      }
+      
+      starsContainer.appendChild(fragment);
+    };
     
-    for (let i = 0; i < 5; i++) {
-      const nebula = document.createElement("div");
-      nebula.classList.add("nebula");
-      
-      // Position and size
-      nebula.style.top = `${10 + Math.random() * 80}%`;
-      nebula.style.left = `${10 + Math.random() * 80}%`;
-      nebula.style.opacity = `${0.1 + Math.random() * 0.15}`;
-      nebula.style.width = `${250 + Math.random() * 200}px`;
-      nebula.style.height = `${250 + Math.random() * 200}px`;
-      nebula.style.transform = `scale(${0.8 + Math.random() * 1.5}) rotate(${Math.random() * 360}deg)`;
-      
-      // Choose a random color scheme
-      const colorScheme = nebulaColors[Math.floor(Math.random() * nebulaColors.length)];
-      nebula.style.background = `radial-gradient(
-        circle at center,
-        ${colorScheme[0]},
-        ${colorScheme[1]} 40%,
-        ${colorScheme[2]} 70%,
-        transparent 80%
-      )`;
-      
-      // Randomize animation
-      nebula.style.animationDuration = `${15 + Math.random() * 10}s`;
-      
-      starsContainer.appendChild(nebula);
-    }
-    
-    // Create cosmic dust particles
+    // Create cosmic dust particles - significantly reduced count
     const createCosmicDust = (count: number) => {
+      const fragment = document.createDocumentFragment();
+      
       for (let i = 0; i < count; i++) {
         const dust = document.createElement("div");
         dust.classList.add("cosmic-dust");
         dust.style.top = `${Math.random() * 100}%`;
         dust.style.left = `${Math.random() * 100}%`;
-        dust.style.opacity = `${0.1 + Math.random() * 0.4}`;
-        dust.style.width = `${1 + Math.random() * 2}px`;
-        dust.style.height = `${1 + Math.random() * 2}px`;
-        dust.style.animationDelay = `${Math.random() * 10}s`;
-        dust.style.animationDuration = `${20 + Math.random() * 20}s`;
-        starsContainer.appendChild(dust);
+        dust.style.opacity = `${0.05 + Math.random() * 0.2}`; // Lower opacity
+        dust.style.width = `${1 + Math.random()}px`; // Smaller size
+        dust.style.height = `${1 + Math.random()}px`;
+        
+        // Only animate a portion of particles
+        if (i % 4 === 0) {
+          dust.style.animationDelay = `${Math.random() * 5}s`;
+          dust.style.animationDuration = `${15 + Math.random() * 10}s`;
+        }
+        
+        fragment.appendChild(dust);
       }
-    };
-    
-    // Create pulse effect elements
-    const createPulses = (count: number) => {
-      const pulseColors = ["#8be9fd", "#bd93f9", "#ff79c6", "#50fa7b", "#f1fa8c"];
       
-      for (let i = 0; i < count; i++) {
-        const pulse = document.createElement("div");
-        pulse.classList.add("pulse-effect");
-        pulse.style.top = `${20 + Math.random() * 60}%`;
-        pulse.style.left = `${20 + Math.random() * 60}%`;
-        
-        // Random color
-        const color = pulseColors[Math.floor(Math.random() * pulseColors.length)];
-        pulse.style.borderColor = color;
-        
-        // Random timing
-        pulse.style.animationDelay = `${Math.random() * 15}s`;
-        pulse.style.animationDuration = `${8 + Math.random() * 7}s`;
-        
-        starsContainer.appendChild(pulse);
-      }
+      starsContainer.appendChild(fragment);
     };
     
-    // Create stars with different colors
-    createStars(150, "star", "2px", "5s", ["#ffffff", "#8be9fd", "#bd93f9"]); // Small stars
-    createStars(60, "star", "3px", "7s", ["#ffffff", "#ff79c6", "#50fa7b"]);  // Medium stars
-    createStars(25, "star-large", "4px", "9s", ["#ffffff", "#f1fa8c", "#8be9fd"]); // Large stars
-    createStars(15, "star-bright", "3px", "3s", ["#ffffff", "#ff79c6", "#50fa7b"]); // Bright stars
+    // Create optimized stars with different colors
+    createStars(80, "star", "2px", "5s", ["#ffffff", "#8be9fd"]); // Small stars
+    createStars(30, "star", "3px", "7s", ["#ffffff", "#ff79c6"]);  // Medium stars
+    createStars(10, "star-large", "4px", "9s", ["#ffffff", "#f1fa8c"]); // Large stars
     
-    // Add more cosmic elements
-    createShootingStars(5);
-    createCosmicDust(200);
-    createPulses(3);
+    // Add fewer cosmic elements for better performance
+    createShootingStars(3);
+    createNebulas(2);
+    createCosmicDust(60);
 
     return () => {
       while (starsContainer.firstChild) {
@@ -159,9 +163,9 @@ const StarsBackground = () => {
   return (
     <div
       id="stars-container"
-      className="fixed inset-0 z-0 overflow-hidden pointer-events-none"
+      className="fixed inset-0 z-0 overflow-hidden pointer-events-none will-change-transform"
     />
   );
-};
+});
 
 export default StarsBackground;
