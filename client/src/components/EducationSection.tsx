@@ -24,7 +24,7 @@ const EducationSection = () => {
                 {/* Content placement based on even/odd index */}
                 {index % 2 !== 0 ? (
                   <>
-                    <div className="glassmorphism rounded-xl p-6 md:w-1/2 md:pr-8 md:text-right">
+                    <div className="glassmorphism rounded-xl p-6 md:w-1/2 md:pr-12 md:text-right">
                       <h3 className="text-xl font-space font-bold mb-2">{edu.degree}</h3>
                       <h4 className={`text-lg font-medium ${index === 0 ? 'text-cyan-400' : index === 1 ? 'text-fuchsia-400' : 'text-yellow-400'} mb-2`}>
                         {edu.institution}
@@ -37,7 +37,7 @@ const EducationSection = () => {
                 ) : (
                   <>
                     <div className="md:w-1/2 md:pr-8 md:text-right hidden md:block"></div>
-                    <div className="glassmorphism rounded-xl p-6 md:w-1/2 md:pl-8">
+                    <div className="glassmorphism rounded-xl p-6 md:w-1/2 md:pl-12">
                       <h3 className="text-xl font-space font-bold mb-2">{edu.degree}</h3>
                       <h4 className={`text-lg font-medium ${index === 0 ? 'text-cyan-400' : index === 1 ? 'text-fuchsia-400' : 'text-yellow-400'} mb-2`}>
                         {edu.institution}
