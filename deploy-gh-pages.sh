@@ -28,7 +28,7 @@ git add -A
 git commit -m "Deploy to GitHub Pages"
 
 # Force push to the gh-pages branch on GitHub
-git push -f https://github.com/VaibhavVishwkarma/Vaibhav-Web.git master:gh-pages
+git push -f https://github.com/VaibhavVishwkarma/Vaibhav-Dev.git master:gh-pages
 
 cd ..
 

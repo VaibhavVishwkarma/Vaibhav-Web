@@ -37,12 +37,7 @@ const Footer = () => {
                 <i className={`${link.icon}`}></i>
               </a>
             ))}
-            <a 
-              href={`mailto:${contactInfo.email}`} 
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-cyan-400 hover:text-white transition-all"
-            >
-              <i className="fas fa-envelope"></i>
-            </a>
+
           </div>
         </div>
         

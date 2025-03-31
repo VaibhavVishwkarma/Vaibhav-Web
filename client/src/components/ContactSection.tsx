@@ -68,64 +68,7 @@ const ContactSection = () => {
           <span className="gradient-text">Get In Touch</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          <div className="glassmorphism rounded-xl p-8">
-            <h3 className="text-2xl font-space font-bold mb-6 text-cyan-400">Contact Information</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 mr-4">
-                  <i className="fas fa-envelope text-xl"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Email</h4>
-                  <a href={`mailto:${contactInfo.email}`} className="text-gray-300 hover:text-cyan-400 transition-colors">
-                    {contactInfo.email}
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-fuchsia-400/20 text-fuchsia-400 mr-4">
-                  <i className="fas fa-phone text-xl"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Phone</h4>
-                  <a href={`tel:${contactInfo.phone}`} className="text-gray-300 hover:text-fuchsia-400 transition-colors">
-                    {contactInfo.phone}
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-yellow-400/20 text-yellow-400 mr-4">
-                  <i className="fas fa-map-marker-alt text-xl"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Location</h4>
-                  <p className="text-gray-300">{contactInfo.location}</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-10">
-              <h4 className="text-lg font-medium mb-4">Connect With Me</h4>
-              <div className="flex space-x-4">
-                {contactInfo.socialLinks.map((link, index) => (
-                  <a 
-                    key={index}
-                    href={link.url} 
-                    className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-cyan-400 hover:text-white transition-all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className={`${link.icon} text-xl`}></i>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          
+        <div className="grid grid-cols-1 gap-10 max-w-3xl mx-auto">
           <div className="glassmorphism rounded-xl p-8 relative">
             <h3 className="text-2xl font-space font-bold mb-6 text-fuchsia-400">Send Me a Message</h3>
             

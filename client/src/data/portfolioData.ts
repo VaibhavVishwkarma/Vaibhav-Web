@@ -289,14 +289,11 @@ export const certificates: Certificate[] = [
 ];
 
 export const contactInfo = {
-  email: "vaibhavvishwkarma167@gmail.com",
-  phone: "+91 7417295711",
-  location: "Moradabad, Uttar Pradesh, India",
   socialLinks: [
     {
       name: "GitHub",
       icon: "fab fa-github",
-      url: "#",
+      url: "https://github.com/VaibhavVishwkarma/",
     },
     {
       name: "LinkedIn",

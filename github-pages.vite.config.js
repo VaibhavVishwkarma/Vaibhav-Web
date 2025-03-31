@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Vaibhav-Web/", // This is your repository name
+  base: "/Vaibhav-Dev/", // This is your repository name
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),

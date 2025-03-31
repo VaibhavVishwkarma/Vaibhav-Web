@@ -5,7 +5,7 @@ This document explains how to deploy your portfolio to GitHub Pages.
 ## Prerequisites
 
 1. Create a GitHub account if you don't have one already
-2. Create a new repository named `Vaibhav-Web`
+2. Create a new repository named `Vaibhav-Dev`
 
 ## Deployment Steps
 
@@ -14,11 +14,11 @@ This document explains how to deploy your portfolio to GitHub Pages.
 1. Make sure you have Git installed on your computer
 2. Clone your repository:
    ```sh
-   git clone https://github.com/YourUsername/Vaibhav-Web.git
+   git clone https://github.com/YourUsername/Vaibhav-Dev.git
    ```
 3. Navigate to the project directory:
    ```sh
-   cd Vaibhav-Web
+   cd Vaibhav-Dev
    ```
 4. Copy all files from this Replit project to your local repository
 5. Run the deployment script:
@@ -49,7 +49,7 @@ This document explains how to deploy your portfolio to GitHub Pages.
    ```
 5. Push to the `gh-pages` branch of your repository:
    ```sh
-   git push -f https://github.com/YourUsername/Vaibhav-Web.git master:gh-pages
+   git push -f https://github.com/YourUsername/Vaibhav-Dev.git master:gh-pages
    ```
 
 ## After Deployment
@@ -58,12 +58,12 @@ This document explains how to deploy your portfolio to GitHub Pages.
 2. Navigate to Settings > Pages
 3. Ensure the source is set to the `gh-pages` branch
 4. Wait a few minutes for your site to be published
-5. Your site will be available at `https://yourusername.github.io/Vaibhav-Web/`
+5. Your site will be available at `https://yourusername.github.io/Vaibhav-Dev/`
 
 ## Troubleshooting
 
 If your site shows a 404 error after deployment:
-1. Ensure your repository name is exactly `Vaibhav-Web` (case sensitive)
+1. Ensure your repository name is exactly `Vaibhav-Dev` (case sensitive)
 2. Check that the `base` property in `github-pages.vite.config.js` matches your repository name
 3. Verify that GitHub Pages is enabled in your repository settings
 4. Ensure the `.nojekyll` file exists in your deployed site
