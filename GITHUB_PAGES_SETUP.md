@@ -1,57 +1,76 @@
-# GitHub Pages Setup Guide
+# GitHub Pages Deployment Guide
 
-This document explains how the GitHub Pages deployment is configured for this portfolio website.
+This document explains how to deploy your portfolio to GitHub Pages.
 
-## Configuration Overview
+## Prerequisites
 
-The portfolio is set up to deploy as a client-side only application on GitHub Pages, utilizing the following setup:
+1. Create a GitHub account if you don't have one already
+2. Create a new repository named `Vaibhav-Web`
 
-### 1. SPA Routing on GitHub Pages
+## Deployment Steps
 
-GitHub Pages doesn't natively support single-page applications with client-side routing. When a user refreshes the page or accesses a direct URL (like `/projects`), GitHub Pages would return a 404 error. To solve this, we implement the SPA GitHub Pages pattern:
+### Option 1: Using the Deploy Script
 
-- We include a script in `index.html` that handles routing for GitHub Pages
-- We create a custom `404.html` that redirects back to the main app with the original path preserved
+1. Make sure you have Git installed on your computer
+2. Clone your repository:
+   ```sh
+   git clone https://github.com/YourUsername/Vaibhav-Web.git
+   ```
+3. Navigate to the project directory:
+   ```sh
+   cd Vaibhav-Web
+   ```
+4. Copy all files from this Replit project to your local repository
+5. Run the deployment script:
+   ```sh
+   ./deploy-gh-pages.sh
+   ```
 
-### 2. Build Process for GitHub Pages
+### Option 2: Manual Deployment
 
-The build process is configured in two ways:
+1. Build the project for GitHub Pages:
+   ```sh
+   NODE_ENV=production vite build --config github-pages.vite.config.js
+   ```
+2. Create a `.nojekyll` file in the `dist` directory:
+   ```sh
+   touch dist/.nojekyll
+   ```
+3. Copy `index.html` to `404.html` for client-side routing:
+   ```sh
+   cp dist/index.html dist/404.html
+   ```
+4. Initialize Git in the `dist` directory:
+   ```sh
+   cd dist
+   git init
+   git add -A
+   git commit -m "Deploy to GitHub Pages"
+   ```
+5. Push to the `gh-pages` branch of your repository:
+   ```sh
+   git push -f https://github.com/YourUsername/Vaibhav-Web.git master:gh-pages
+   ```
 
-- **Manual Deployment**: Using `deploy.sh` script
-- **Automated Deployment**: Using GitHub Actions workflow in `.github/workflows/deploy.yml`
+## After Deployment
 
-Both methods build a client-side only version of the app and push it to the `gh-pages` branch.
-
-### 3. File Structure After Build
-
-The build process creates:
-- Regular application files in `dist/`
-- A copy of `index.html` as `404.html` to handle redirects
-
-## How the Routing Works
-
-1. When a user accesses a direct URL like `https://vaibhavvishwkarma.github.io/Portfolio-Vaibhav/projects`
-2. GitHub serves the `404.html` file (since the path doesn't exist as a file)
-3. The script in `404.html` captures the original URL
-4. It redirects to the root with the path in a special query parameter
-5. The script in `index.html` reads this parameter and restores the original URL
-
-## Custom Domain Configuration
-
-If you want to use a custom domain:
-
-1. In your GitHub repository, go to Settings > Pages
-2. Enter your custom domain and follow GitHub's instructions for DNS setup
-3. Update `client/.env.production` with your domain
-4. Uncomment the CNAME line in `deploy.sh` and update with your domain
+1. Go to your repository on GitHub
+2. Navigate to Settings > Pages
+3. Ensure the source is set to the `gh-pages` branch
+4. Wait a few minutes for your site to be published
+5. Your site will be available at `https://yourusername.github.io/Vaibhav-Web/`
 
 ## Troubleshooting
 
-- **White screen on refresh**: Ensure the 404.html redirect is working correctly
-- **Assets not loading**: Make sure paths are relative or use the BASE_PATH environment variable
-- **Custom domain not working**: Verify DNS settings and wait for propagation (can take up to 24 hours)
+If your site shows a 404 error after deployment:
+1. Ensure your repository name is exactly `Vaibhav-Web` (case sensitive)
+2. Check that the `base` property in `github-pages.vite.config.js` matches your repository name
+3. Verify that GitHub Pages is enabled in your repository settings
+4. Ensure the `.nojekyll` file exists in your deployed site
 
-## Additional Resources
+## Custom Domain (Optional)
 
-- [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [SPA GitHub Pages Pattern](https://github.com/rafgraph/spa-github-pages)
+If you want to use a custom domain:
+1. Uncomment the CNAME line in the `deploy-gh-pages.sh` script and replace with your domain
+2. Configure your domain's DNS settings according to GitHub's instructions
+3. In your repository settings, add your custom domain under the GitHub Pages section
