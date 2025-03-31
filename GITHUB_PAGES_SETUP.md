@@ -1,88 +1,57 @@
-# GitHub Pages Deployment Guide
+# GitHub Pages Setup Guide
 
-This document provides instructions for deploying this portfolio website to GitHub Pages.
+This document explains how the GitHub Pages deployment is configured for this portfolio website.
 
-## Prerequisites
+## Configuration Overview
 
-1. Make sure you have a GitHub account
-2. Create a repository at https://github.com/VaibhavVishwkarma/Portfolio-Vaibhav.git
-3. Ensure you have Git installed on your local machine
+The portfolio is set up to deploy as a client-side only application on GitHub Pages, utilizing the following setup:
 
-## Preparation Steps
+### 1. SPA Routing on GitHub Pages
 
-Before deploying to GitHub Pages, you'll need to make the following changes:
+GitHub Pages doesn't natively support single-page applications with client-side routing. When a user refreshes the page or accesses a direct URL (like `/projects`), GitHub Pages would return a 404 error. To solve this, we implement the SPA GitHub Pages pattern:
 
-### 1. Update vite.config.ts
+- We include a script in `index.html` that handles routing for GitHub Pages
+- We create a custom `404.html` that redirects back to the main app with the original path preserved
 
-When copying this project for deployment, modify the `vite.config.ts` file to include:
+### 2. Build Process for GitHub Pages
 
-```typescript
-// Add this line after the build configuration
-base: '/Portfolio-Vaibhav/', // Replace with your repository name
-```
+The build process is configured in two ways:
 
-### 2. Modify package.json Scripts
+- **Manual Deployment**: Using `deploy.sh` script
+- **Automated Deployment**: Using GitHub Actions workflow in `.github/workflows/deploy.yml`
 
-Update the scripts section in package.json to:
+Both methods build a client-side only version of the app and push it to the `gh-pages` branch.
 
-```json
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview"
-}
-```
+### 3. File Structure After Build
 
-## Deployment Options
+The build process creates:
+- Regular application files in `dist/`
+- A copy of `index.html` as `404.html` to handle redirects
 
-### Option 1: Manual Deployment
+## How the Routing Works
 
-1. Run the build command:
-```bash
-npm run build
-```
+1. When a user accesses a direct URL like `https://vaibhavvishwkarma.github.io/Portfolio-Vaibhav/projects`
+2. GitHub serves the `404.html` file (since the path doesn't exist as a file)
+3. The script in `404.html` captures the original URL
+4. It redirects to the root with the path in a special query parameter
+5. The script in `index.html` reads this parameter and restores the original URL
 
-2. Navigate to the build directory:
-```bash
-cd dist
-```
+## Custom Domain Configuration
 
-3. Initialize a Git repository:
-```bash
-git init
-git add -A
-git commit -m "Deploy to GitHub Pages"
-```
+If you want to use a custom domain:
 
-4. Push to the gh-pages branch:
-```bash
-git push -f https://github.com/VaibhavVishwkarma/Portfolio-Vaibhav.git master:gh-pages
-```
-
-### Option 2: Using the Deployment Script
-
-1. Make the deploy script executable:
-```bash
-chmod +x deploy.sh
-```
-
-2. Run the deploy script:
-```bash
-./deploy.sh
-```
-
-### Option 3: GitHub Actions
-
-1. Push your code to the main branch of your repository
-2. GitHub Actions will automatically build and deploy to the gh-pages branch
-
-## Accessing Your Live Site
-
-After deployment, your site will be available at:
-`https://vaibhavvishwkarma.github.io/Portfolio-Vaibhav/`
+1. In your GitHub repository, go to Settings > Pages
+2. Enter your custom domain and follow GitHub's instructions for DNS setup
+3. Update `client/.env.production` with your domain
+4. Uncomment the CNAME line in `deploy.sh` and update with your domain
 
 ## Troubleshooting
 
-- If your site doesn't appear, check the GitHub Pages settings in your repository
-- Make sure the gh-pages branch is set as the source for GitHub Pages
-- Verify that all paths in your code are relative and use the correct base path
+- **White screen on refresh**: Ensure the 404.html redirect is working correctly
+- **Assets not loading**: Make sure paths are relative or use the BASE_PATH environment variable
+- **Custom domain not working**: Verify DNS settings and wait for propagation (can take up to 24 hours)
+
+## Additional Resources
+
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+- [SPA GitHub Pages Pattern](https://github.com/rafgraph/spa-github-pages)

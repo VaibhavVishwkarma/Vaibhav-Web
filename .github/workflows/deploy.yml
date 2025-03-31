@@ -25,8 +25,11 @@ jobs:
       - name: Install dependencies 📦
         run: npm ci
 
-      - name: Build 🏗️
-        run: npm run build
+      - name: Make build script executable 🔑
+        run: chmod +x ./build-gh-pages.sh
+
+      - name: Build for GitHub Pages 🏗️
+        run: ./build-gh-pages.sh
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

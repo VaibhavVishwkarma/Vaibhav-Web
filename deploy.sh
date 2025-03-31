@@ -3,8 +3,8 @@
 # abort on errors
 set -e
 
-# build
-npm run build
+# Build client-side only for GitHub Pages
+./build-gh-pages.sh
 
 # navigate into the build output directory
 cd dist
@@ -17,8 +17,7 @@ git init
 git add -A
 git commit -m 'Deploy to GitHub Pages'
 
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-# replace with your actual GitHub username and repository name
+# Push to the gh-pages branch
 git push -f https://github.com/VaibhavVishwkarma/Portfolio-Vaibhav.git master:gh-pages
 
 cd -
