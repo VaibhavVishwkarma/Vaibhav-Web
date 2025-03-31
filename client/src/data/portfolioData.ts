@@ -120,7 +120,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["JavaScript", "API Integration", "CSS"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/Weather-Web-App",
   },
   {
     id: 2,
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["Data Analysis", "Charts", "Dashboard"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/Customer-Sales-Insight-Analysis",
   },
   {
     id: 3,
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["Python", "Data Science", "Visualization"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/Mobile-Market-Analysis-Dashboard-2019---2024-",
   },
   {
     id: 4,
@@ -147,7 +147,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1598291286794-d417e2ffd85a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["JavaScript", "HTML", "CSS"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/QR-CODE-GENERATOR-",
   },
   {
     id: 5,
@@ -156,7 +156,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", 
     tags: ["HTML", "CSS", "JavaScript"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/Shoes-Store-",
   },
   {
     id: 6,
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["React", "JavaScript", "CSS"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/Amazon-Clone-HTML-CSS",
   },
   {
     id: 7,
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["JavaScript", "HTML", "CSS"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/VaibhavVishwkarma/BMI-Calculator",
   },
 ];
 
@@ -283,7 +283,7 @@ export const certificates: Certificate[] = [
     title: "C Programming",
     issuer: "Infosys Springboard",
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "https://infyspringboard.onwingspan.com/web/en/app/toc/lex_auth_01310876830240358472_shared/overview",
+    link: "https://drive.google.com/file/d/1b5Y267iczKKzRN8uZ5z2xMfjJf_U-86F/view?usp=sharing",
     color: "shadow-yellow-400/30 hover:shadow-yellow-400/50",
   },
 ];
@@ -298,7 +298,7 @@ export const contactInfo = {
     {
       name: "LinkedIn",
       icon: "fab fa-linkedin-in",
-      url: "#",
+      url: "https://www.linkedin.com/in/vaibhav-vishwkarma-b561a12a5/",
     },
     {
       name: "Twitter",
