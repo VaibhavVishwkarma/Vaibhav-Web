@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "./ThemeProvider";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -53,29 +51,14 @@ const Navbar = () => {
             <a onClick={() => scrollToSection("contact")} className="hover:text-cyan-400 transition-colors cursor-pointer">Contact</a>
           </div>
           
-          {/* Theme Toggle Button */}
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={toggleTheme} 
-              className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <i className="fas fa-sun text-yellow-400"></i>
-              ) : (
-                <i className="fas fa-moon text-blue-800"></i>
-              )}
-            </button>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={toggleMenu} 
-              className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-              aria-label="Toggle menu"
-            >
-              <i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"}`}></i>
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={toggleMenu} 
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            aria-label="Toggle menu"
+          >
+            <i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"}`}></i>
+          </button>
         </div>
         
         {/* Mobile Menu */}

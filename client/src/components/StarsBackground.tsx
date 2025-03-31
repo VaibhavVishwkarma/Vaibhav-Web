@@ -1,9 +1,6 @@
 import { useEffect } from "react";
-import { useTheme } from "./ThemeProvider";
 
 const StarsBackground = () => {
-  const { theme } = useTheme();
-  
   useEffect(() => {
     const starsContainer = document.getElementById("stars-container");
     if (!starsContainer) return;
@@ -157,7 +154,7 @@ const StarsBackground = () => {
         starsContainer.removeChild(starsContainer.firstChild);
       }
     };
-  }, [theme]); // Re-run when theme changes
+  }, []); // Only run once on mount
 
   return (
     <div

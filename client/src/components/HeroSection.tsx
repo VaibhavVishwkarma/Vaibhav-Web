@@ -1,10 +1,8 @@
 import { useEffect, useRef } from "react";
 import useTypingEffect from "../hooks/useTypingEffect";
-import { useTheme } from "./ThemeProvider";
 
 const HeroSection = () => {
-  const { theme } = useTheme();
-  const typedText = useTypingEffect(["Freelancer", "Web Developer", "UI/UX Designer", "Problem Solver"]);
+  const typedText = useTypingEffect(["Software Developer", "AI Enthusiast", "Problem Solver", "Full Stack Developer"]);
   const heroRef = useRef<HTMLDivElement>(null);
   
   // Add local particle effects just for the hero section
@@ -57,7 +55,7 @@ const HeroSection = () => {
     }, 200);
     
     return () => clearInterval(interval);
-  }, [theme]);
+  }, []);
 
   return (
     <section 
@@ -109,8 +107,8 @@ const HeroSection = () => {
           
           {/* Brief intro text */}
           <p className="text-gray-300 mb-8 max-w-xl leading-relaxed text-base md:text-lg">
-            Crafting <span className="text-cyan-400">stellar digital experiences</span> with clean code and 
-            creative designs. Let's collaborate and build something 
+            Crafting <span className="text-cyan-400">stellar digital experiences</span> with a passion for Software Development and AI. 
+            Let's collaborate and build something 
             <span className="text-fuchsia-400"> out of this world</span> together.
           </p>
           
