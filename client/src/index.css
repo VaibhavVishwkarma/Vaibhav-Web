@@ -684,3 +684,80 @@
   font-size: 0.875rem;
   font-weight: 500;
 }
+
+/* Programming Language Animation Styles */
+@keyframes cosmic-twinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes logo-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes logo-orbit {
+  0% {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.cosmic-star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  will-change: opacity, transform;
+  animation: cosmic-twinkle 5s infinite ease-in-out;
+}
+
+.logo-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.logo-container:hover {
+  transform: scale(1.15) translateZ(0);
+}
+
+.logo-container:hover .logo-glow {
+  opacity: 1;
+}
+
+.logo-pulse {
+  animation: logo-pulse 4s infinite ease-in-out;
+}
+
+.animate-logo-fade-in {
+  animation: logo-fade-in 0.8s ease-out forwards;
+}
+
+.logos-orbit {
+  perspective: 1000px;
+}

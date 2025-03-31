@@ -9,6 +9,7 @@ import CertificatesSection from "./components/CertificatesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import StarsBackground from "./components/StarsBackground";
+import AnimatedProgrammingLogos from "./components/AnimatedProgrammingLogos";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <main>
         <HeroSection />
         <AboutSection />
+        <AnimatedProgrammingLogos />
         <SkillsSection />
         <ProjectsSection />
         <ExperienceSection />
