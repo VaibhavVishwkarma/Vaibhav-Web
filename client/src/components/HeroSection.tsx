@@ -3,7 +3,7 @@ import useTypingEffect from "../hooks/useTypingEffect";
 
 // Using memo for performance
 const HeroSection = memo(() => {
-  const typedText = useTypingEffect(["Software Developer", "AI Enthusiast", "Problem Solver", "Full Stack Developer"]);
+  const typedText = useTypingEffect(["Software & AI Enthusiast", "Problem Solver","Exploring IoT & Smart Technologies" ]);
   const heroRef = useRef<HTMLDivElement>(null);
   
   // Create optimized blurry orbs with CSS
