@@ -3,9 +3,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 // Performance optimized typing effect with reduced re-renders
 export default function useTypingEffect(
   words: string[], 
-  typingSpeed = 200, // Slowed down for better performance
-  deleteSpeed = 80, // Slowed down for better performance
-  delayBetweenWords = 1500 // Increased delay for better performance
+  typingSpeed = 50, // Slowed down for better performance
+  deleteSpeed = 100, // Slowed down for better performance
+  delayBetweenWords = 500 // Increased delay for better performance
 ) {
   const [displayText, setDisplayText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
