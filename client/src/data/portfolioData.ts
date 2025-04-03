@@ -251,7 +251,7 @@ export const certificates: Certificate[] = [
     title: "Python for Data Science, AI & Development",
     issuer: "IBM / Coursera",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "https://coursera.org/share/cf432eb4514df81567a668806d5c9dc4",
+    link: "https://www.coursera.org/account/accomplishments/verify/UPSNDHSSAN5A",
     color: "shadow-fuchsia-400/30 hover:shadow-fuchsia-400/50",
   },
   {
@@ -259,7 +259,7 @@ export const certificates: Certificate[] = [
     title: "Machine Learning with Python",
     issuer: "IBM / Coursera",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "https://coursera.org/share/79f6d138f3a2e08d8733e911e342cf81",
+    link: "https://www.coursera.org/account/accomplishments/verify/7W3RP5EOZ7VH",
     color: "shadow-yellow-400/30 hover:shadow-yellow-400/50",
   },
   {
@@ -267,7 +267,7 @@ export const certificates: Certificate[] = [
     title: "Introduction to Data Analytics",
     issuer: "IBM / Coursera",
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "https://coursera.org/share/81d5ed4ffee25fa87f036c7f077da7de",
+    link: "https://www.coursera.org/account/accomplishments/verify/Y9G5QQG6DR5Z",
     color: "shadow-cyan-400/30 hover:shadow-cyan-400/50",
   },
   {
@@ -275,7 +275,7 @@ export const certificates: Certificate[] = [
     title: "AWS Cloud Technical Essentials",
     issuer: "Amazon Web Services / Coursera",
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "https://coursera.org/share/c4ad3ce6ee6703226ea9b494fb64a67e",
+    link: "https://www.coursera.org/account/accomplishments/verify/T6AORU0M0LNZ",
     color: "shadow-fuchsia-400/30 hover:shadow-fuchsia-400/50",
   },
   {
