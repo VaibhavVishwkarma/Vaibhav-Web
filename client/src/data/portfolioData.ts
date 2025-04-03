@@ -119,7 +119,7 @@ export const projects: Project[] = [
     description: "Interactive weather application that provides real-time forecasts, location-based weather data, and visual weather conditions.",
     image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["JavaScript", "API Integration", "CSS"],
-    demoLink: "#",
+    demoLink: "https://vaibhavvishwkarma.github.io/Weather-Web-App/",
     githubLink: "https://github.com/VaibhavVishwkarma/Weather-Web-App",
   },
   {
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     description: "Web application that creates customizable QR codes for various purposes like URLs, contact information, and plain text.",
     image: "https://images.unsplash.com/photo-1598291286794-d417e2ffd85a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["JavaScript", "HTML", "CSS"],
-    demoLink: "#",
+    demoLink: "https://vaibhavvishwkarma.github.io/QR-CODE-GENERATOR-/",
     githubLink: "https://github.com/VaibhavVishwkarma/QR-CODE-GENERATOR-",
   },
   {
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     description: "E-commerce platform specialized for footwear with product filtering, shopping cart, and responsive design.",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", 
     tags: ["HTML", "CSS", "JavaScript"],
-    demoLink: "#",
+    demoLink: "https://vaibhavvishwkarma.github.io/Shoes-Store-/",
     githubLink: "https://github.com/VaibhavVishwkarma/Shoes-Store-",
   },
   {
@@ -163,8 +163,8 @@ export const projects: Project[] = [
     title: "E-commerce Website",
     description: "Full-featured online store with product catalog, user authentication, shopping cart, and checkout functionality.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    tags: ["React", "JavaScript", "CSS"],
-    demoLink: "#",
+    tags: ["Figma", "HTML", "CSS"],
+    demoLink: "https://vaibhavvishwkarma.github.io/Amazon-Clone-HTML-CSS/",
     githubLink: "https://github.com/VaibhavVishwkarma/Amazon-Clone-HTML-CSS",
   },
   {
@@ -173,7 +173,7 @@ export const projects: Project[] = [
     description: "Interactive tool that calculates Body Mass Index, provides health insights, and offers personalized recommendations.",
     image: "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     tags: ["JavaScript", "HTML", "CSS"],
-    demoLink: "#",
+    demoLink: "https://vaibhavvishwkarma.github.io/BMI-Calculator/",
     githubLink: "https://github.com/VaibhavVishwkarma/BMI-Calculator",
   },
 ];
